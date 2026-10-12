@@ -60,8 +60,11 @@ async function get<T>(path: string, query: Query = {}, revalidate = 300): Promis
     if (value === undefined || value === "" || value === false) continue;
     url.searchParams.set(key, value === true ? "1" : String(value));
   }
+  const headers: Record<string, string> = { Accept: "application/json", "User-Agent": "AunomayPlayMCP/1.0 (+https://play.aunomay.com)" };
+  // Shared secret so a Cloudflare WAF "Skip" rule can let this server through bot protection.
+  if (process.env.AUNOMAY_API_KEY) headers["X-Aunomay-Mcp-Key"] = process.env.AUNOMAY_API_KEY;
   const res = await fetch(url, {
-    headers: { Accept: "application/json", "User-Agent": "AunomayPlayMCP/1.0 (+https://play.aunomay.com)" },
+    headers,
     signal: AbortSignal.timeout(10_000),
     // Catalog data changes rarely; share the CDN/data cache across requests.
     ...(revalidate > 0 ? { next: { revalidate } } : { cache: "no-store" as const }),
@@ -74,6 +77,10 @@ async function get<T>(path: string, query: Query = {}, revalidate = 300): Promis
   }
   if (!res.ok) {
     const code = (body as { error?: string } | null)?.error || "request_failed";
+    if (!(body as { error?: string } | null)?.error) {
+      // Not our API's JSON error: usually a CDN/WAF block. Log enough to find it in Cloudflare Security Events.
+      console.error(`[aunomay-api] ${res.status} ${url.pathname} server=${res.headers.get("server")} cf-ray=${res.headers.get("cf-ray")} cf-mitigated=${res.headers.get("cf-mitigated")}`);
+    }
     throw new AunomayApiError(res.status, code);
   }
   return body as T;

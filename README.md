@@ -50,6 +50,7 @@ npm test
 | `AUNOMAY_SITE_URL` | `https://play.aunomay.com` | The site whose public catalog API (`/api/v1`) is read |
 | `AUNOMAY_API_BASE` | `<site>/api/v1` | Overrides the API base |
 | `NEXT_PUBLIC_BASE_URL` | Vercel production URL | Public URL shown on the landing page |
+| `AUNOMAY_API_KEY` | — | Secret sent as `X-Aunomay-Mcp-Key`, so a Cloudflare WAF rule can skip bot protection for this server |
 | `OPENAI_APPS_CHALLENGE` | — | Domain verification token served at `/.well-known/openai-apps-challenge` |
 
 ## Data and privacy

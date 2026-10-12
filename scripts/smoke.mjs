@@ -29,6 +29,7 @@ check("all tools read-only", tools.every((t) => t.annotations?.readOnlyHint === 
 const call = (name, args) => rpc("tools/call", { name, arguments: args });
 
 const s = await call("search", { query: "car" });
+if (s.isError) { check("search", false, s.content[0].text); process.exit(1); }
 const results = JSON.parse(s.content[0].text).results;
 check("search", Array.isArray(results), `${results.length} results`);
 if (results[0]) {
