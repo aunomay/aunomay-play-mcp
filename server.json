@@ -6,6 +6,6 @@
   "version": "1.0.0",
   "websiteUrl": "https://play.aunomay.com",
   "remotes": [
-    { "type": "streamable-http", "url": "https://aunomay-play-mcp.vercel.app/mcp" }
+    { "type": "streamable-http", "url": "https://mcp.play.aunomay.com/mcp" }
   ]
 }

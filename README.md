@@ -4,8 +4,8 @@
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server that lets ChatGPT, Claude, Cursor and other AI assistants search and launch free HTML5 browser games from **[Aunomay Play](https://play.aunomay.com)**. You don't need to download anything or sign up, and the games work on desktop and mobile.
 
-- **Live demo:** https://aunomay-play-mcp.vercel.app
-- **MCP endpoint:** `https://aunomay-play-mcp.vercel.app/mcp` (Streamable HTTP, read-only, no auth)
+- **Live demo:** https://mcp.play.aunomay.com
+- **MCP endpoint:** `https://mcp.play.aunomay.com/mcp` (Streamable HTTP, read-only, no auth)
 - Built with Next.js App Router, [`mcp-handler`](https://www.npmjs.com/package/mcp-handler) and MCP SDK v2. It's ready for Vercel Fluid compute.
 
 ## Tools
@@ -25,12 +25,12 @@ There is also one prompt, `recommend_games`.
 ## Connect
 
 ```json
-{ "mcpServers": { "aunomay-play": { "url": "https://aunomay-play-mcp.vercel.app/mcp" } } }
+{ "mcpServers": { "aunomay-play": { "url": "https://mcp.play.aunomay.com/mcp" } } }
 ```
 
 - **ChatGPT:** install Aunomay Play from the app directory. You can also turn on Developer mode, then create an app with the endpoint and choose no authentication.
-- **Claude:** go to Settings → Connectors → Add custom connector. In Claude Code, run `claude mcp add --transport http aunomay-play https://aunomay-play-mcp.vercel.app/mcp`.
-- **stdio-only clients:** run `npx -y mcp-remote https://aunomay-play-mcp.vercel.app/mcp`.
+- **Claude:** go to Settings → Connectors → Add custom connector. In Claude Code, run `claude mcp add --transport http aunomay-play https://mcp.play.aunomay.com/mcp`.
+- **stdio-only clients:** run `npx -y mcp-remote https://mcp.play.aunomay.com/mcp`.
 
 ## Run locally
 
@@ -55,7 +55,7 @@ npm test
 
 ## Data and privacy
 
-The server only reads published games from the public Aunomay Play catalog API. It stores nothing and needs no keys. Game links carry `utm_source=mcp` or `utm_source=chatgpt` so that visits from AI assistants show up in the site's analytics. See [/privacy](https://aunomay-play-mcp.vercel.app/privacy).
+The server only reads published games from the public Aunomay Play catalog API. It stores nothing and needs no keys. Game links carry `utm_source=mcp` or `utm_source=chatgpt` so that visits from AI assistants show up in the site's analytics. See [/privacy](https://mcp.play.aunomay.com/privacy).
 
 ## License
 

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_URL || "https://aunomay-play-mcp.vercel.app";
+import { baseUrl } from "@/lib/base-url";
+
+const BASE = baseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
