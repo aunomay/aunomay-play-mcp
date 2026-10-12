@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.aunomay/play",
+  "title": "Aunomay Play",
+  "description": "Search, browse and launch free HTML5 browser games from Aunomay Play. Read-only, no auth.",
+  "version": "1.0.0",
+  "websiteUrl": "https://play.aunomay.com",
+  "remotes": [
+    { "type": "streamable-http", "url": "https://aunomay-play-mcp.vercel.app/mcp" }
+  ]
+}

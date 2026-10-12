@@ -1,0 +1,41 @@
+{
+  "name": "aunomay-play-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Aunomay Play: search and play free HTML5 browser games from ChatGPT, Claude, Cursor and other MCP clients.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/smoke.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "chatgpt-app",
+    "html5-games",
+    "browser-games",
+    "nextjs",
+    "vercel"
+  ],
+  "author": "Aunomay <support@aunomay.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "mcp-handler": "^2.3.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "typescript": "5.9"
+  },
+  "private": true,
+  "homepage": "https://play.aunomay.com",
+  "engines": {
+    "node": ">=20"
+  }
+}
